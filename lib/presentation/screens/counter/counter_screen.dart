@@ -33,10 +33,30 @@ class _CounterState extends State<Counter> {
           ],
         ),
       ),
-      floatingActionButton: const FloatingActionButton(
-        onPressed: null,
-        child: Icon(Icons.plus_one),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: () {
+              setState(() {
+                count++;
+              });
+            },
+            child: const Icon(Icons.plus_one),
+          ),
+          const SizedBox(height: 10),
+          FloatingActionButton(
+            onPressed: () {
+              setState(() {
+                if(count > 0) {
+                  count--;
+                }
+              });
+            },
+            child: const Icon(Icons.exposure_minus_1),
+          ),
+        ]
       ),
-    );
+    ); 
   }
 }
