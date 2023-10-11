@@ -24,9 +24,10 @@ class _CounterState extends State<Counter> {
                 fontWeight: FontWeight.w100,
               ),
             ),
-            const Text(
-              'Clicks',
-              style: TextStyle(
+            Text(
+              count > 1 ? 'Clicks' : 'Click',
+              //'Click${count > 1 ? 's' : ''}',
+              style: const TextStyle(
                 fontSize: 50,
               ),
             ),
@@ -54,6 +55,15 @@ class _CounterState extends State<Counter> {
               });
             },
             child: const Icon(Icons.exposure_minus_1),
+          ),
+          const SizedBox(height: 10),
+          FloatingActionButton(
+            onPressed: () {
+              setState(() {
+                count = 0;
+              });
+            },
+            child: const Icon(Icons.refresh_rounded),
           ),
         ]
       ),
