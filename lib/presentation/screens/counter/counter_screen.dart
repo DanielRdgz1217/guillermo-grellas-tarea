@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../components/custom_button.dart';
 
 class Counter extends StatefulWidget{
   const Counter({super.key});
@@ -13,6 +14,9 @@ class _CounterState extends State<Counter> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Center(child: Text('Counter'))
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -37,16 +41,16 @@ class _CounterState extends State<Counter> {
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          FloatingActionButton(
+          CustomButton(
             onPressed: () {
               setState(() {
                 count++;
               });
             },
-            child: const Icon(Icons.plus_one),
+            icon: Icons.plus_one,
           ),
           const SizedBox(height: 10),
-          FloatingActionButton(
+          CustomButton(
             onPressed: () {
               setState(() {
                 if(count > 0) {
@@ -54,16 +58,16 @@ class _CounterState extends State<Counter> {
                 }
               });
             },
-            child: const Icon(Icons.exposure_minus_1),
+            icon: Icons.exposure_minus_1,
           ),
           const SizedBox(height: 10),
-          FloatingActionButton(
+          CustomButton(
             onPressed: () {
               setState(() {
                 count = 0;
               });
             },
-            child: const Icon(Icons.refresh_rounded),
+            icon: Icons.refresh_rounded,
           ),
         ]
       ),
